@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload to Firebase Storage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <form enctype="multipart/form-data" action="/upload" method="post">
+        <input type="file" name="file" id="file">
+        <button type="submit">Upload File</button>
+    </form>
+
+
+    <div>
+        <h2>Files in Storage Bucket:</h2>
+        <table id="fileTable" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>FileName</th>
+              <th>URL</th>
+              <th>Uploaded Time</th>
+            </tr>
+          </thead>
+          <tbody id="fileList"></tbody>
+        </table>
+      </div>
+      
+    <script>
+        fetch('/listFiles')
+          .then((response) => response.json())
+          .then((data) => {
+            const fileList = document.getElementById('fileList');
+            data.forEach((file) => {
+              const row = fileList.insertRow();
+              const fileNameCell = row.insertCell(0);
+              const urlCell = row.insertCell(1);
+              const uploadedTimeCell = row.insertCell(2);
+      
+              fileNameCell.textContent = file.name;
+              urlCell.innerHTML = `<a href="${file.url}" target="_blank">${file.url}</a>`;
+              uploadedTimeCell.textContent = file.uploadedTime;
+            });
+          })
+          .catch((error) => {
+            console.error('Error fetching file list:', error);
+          });
+      </script>
+     
+</body>
+</html>  
+
+
+
+ 
