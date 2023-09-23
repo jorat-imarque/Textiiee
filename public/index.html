@@ -23,8 +23,8 @@
 </head>
 <body>
     <div class="container-fluid" style="background-color: #e9d8ff !important;">
-     <div class="row justify-content-center m-1">
-            <div class="col-md-6 m-1 p-1">
+     <div class="row">
+            <div class="col-md-12 p-1">
                 <div class="card shadow">
                     <div class="card-header d-flex">
                         <button class="btn btn-sm btn-defualt ms-auto" id="RefreshVideoButton">
@@ -49,22 +49,27 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
+
+
+                    <div class="card-footer">
+                        <div class="row p-1">
+                            <form class="d-flex"  enctype="multipart/form-data" action="/upload" method="post">
+                            <div class="col-10 shadow p-1">
+                                    <input class="form-control"  type="file" name="file" id="file">
+                                </div>
+                                <div class="col-2 shadow p-1" >
+                                    <button class="btn btn-defualt btn-block" style="width: 100%;"  type="submit">Upload</button>
+                                </div>
+                        </form>
+                </div>
+                    </div>                        
                 </div>
             </div>
-            <div class="col-md-6 shadow">
-                <div class="row p-1">
-                        <form class="d-flex"  enctype="multipart/form-data" action="/upload" method="post">
-                        <div class="col-10 shadow p-1">
-                                <input class="form-control"  type="file" name="file" id="file">
-                            </div>
-                            <div class="col-2 shadow p-1" >
-                                <button class="btn btn-defualt btn-block" style="width: 100%;"  type="submit">Upload</button>
-                            </div>
-                    </form>
-            </div>
+            <div class="col-md-12 shadow">
+              
                 <div class="table table-responsive">
               
-                    <table id="fileTable" class="table table-sm table-bordered">
+                    <table id="fileTable" class="table table-sm table-bordered " style="display: none;">
                       <thead>
                         <tr>
                           <th>Files</th>
