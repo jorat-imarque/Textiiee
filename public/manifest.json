@@ -1,13 +1,13 @@
 {
   "name": "Textiiee",
-  "short_name": "Viewiiee",
+  "short_name": "Textiiee",
   "start_url": "./index.html", 
   "scope": "./index.html",  
   "display": "standalone",
   "background_color": "#b5b5b5",
   "theme_color": "#541aff",
   "dir": "ltr",
-  "orientation": "landscape-primary",
+   "orientation": "portrait-primary",
   "description": "This is an App for loved one 💟",
   "categories": [
     "social"
